@@ -46,27 +46,34 @@ function my_keydown(e)
 {
 	keyPressed = e.keyCode;
 	console.log(keyPressed);
+
+			if((ball_x == hole_x) && (ball_y==hole_y)){
+				canvas.remove(ball_obj);
+				document.getElementById("hd3").innerHTML="You have Hit the goal!!!";
+				document.getElementById("myCanvas").style.borderColor="red";
+				console.log("You have hit the goal!!!");
+			}
+			else{
+				if(keyPressed == '38'){
+			        up();
+			        console.log("up");
+		        }
+		        if(keyPressed == '40'){
+		    	    down();
+			        console.log("down");
+		        }
+		        if(keyPressed == '37'){
+			        left();
+			        console.log("left");
+		        }
+		        if(keyPressed == '39'){
+			        right();
+			        console.log("right");
+	            }
+			}
 		
-		if(keyPressed == '38')
-		{
-			up();
-			console.log("up");
-		}
-		if(keyPressed == '40')
-		{
-			down();
-			console.log("down");
-		}
-		if(keyPressed == '37')
-		{
-			left();
-			console.log("left");
-		}
-		if(keyPressed == '39')
-		{
-			right();
-			console.log("right");
-	    }
+}
+
 
 	function up(){
 		if(ball_y >= 0){
@@ -74,14 +81,7 @@ function my_keydown(e)
 			console.log("When Up Arrow is pressed, X = " + ball_x + "Y = " + ball_y);
 			canvas.remove(ball_obj);
 			new_image();
-			if((ball_x==hole_x)&&(ball_y==hole_y)){
-				canvas.remove(ball_obj);
-				document.getElementById("hd3").innerHTML="You have Hit the goal!!!";
-				document.getElementById("myCanvas").style.borderColor="red";
-				
-			}
 		}
-		
 	}
 
 	function down()
@@ -91,13 +91,7 @@ function my_keydown(e)
             console.log("Block Height= " + block_image_height);
 			console.log("When Down Arrow is pressed, X =" + ball_x + "Y = " + ball_y);
 			canvas.remove(ball_obj);
-			new_image();   
-			if((ball_x==hole_x)&&(ball_y==hole_y)){
-				canvas.remove(ball_obj);
-				document.getElementById("hd3").innerHTML="You have Hit the goal!!!";
-				document.getElementById("myCanvas").style.borderColor="red";
-			
-			}
+			new_image();
 		} 
 	}
 
@@ -109,11 +103,6 @@ function my_keydown(e)
 			console.log("When Left Arrow is pressed X =" + ball_x + "Y = " + ball_y);
 			canvas.remove(ball_obj);
 			new_image();
-			if((ball_x==hole_x)&&(ball_y==hole_y)){
-				canvas.remove(ball_obj);
-			    document.getElementById("hd3").innerHTML="You have Hit the goal!!!";
-				document.getElementById("myCanvas").style.borderColor="red";
-			}
 		}
 	}
 
@@ -126,13 +115,6 @@ function my_keydown(e)
 			console.log("When Right Arrow is pressed X =" + ball_x + "Y = " + ball_y);
 			canvas.remove(ball_obj);  
 			new_image();
-			if((ball_x==hole_x)&&(ball_y==hole_y)){
-				canvas.remove(ball_obj);
-				document.getElementById("hd3").innerHTML="You have Hit the goal!!!";
-				document.getElementById("myCanvas").style.borderColor="red";
-				
-			}
 		}
 	}
 	
-}
